@@ -3,7 +3,7 @@
 
 @include('admin.partials.head')
 
-<body class="vertical  light  ">
+<body class="vertical  light {{ LaravelLocalization::getCurrentLocale() == 'ar' ? 'rtl' : '' }} ">
     <div class="wrapper">
         @include('admin.partials.navbar')
 

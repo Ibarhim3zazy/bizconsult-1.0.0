@@ -3,7 +3,7 @@
 
 @include('admin.auth.partials.head')
 
-<body class="light ">
+<body class="light {{ LaravelLocalization::getCurrentLocale() == 'ar' ? 'rtl' : '' }}">
 
     @yield('content')
 
