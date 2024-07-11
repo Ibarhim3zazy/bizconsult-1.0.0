@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -15,6 +16,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
+// front routes
 Route::name('front.')->group(function () {
     Route::view('/', 'front.index')->name('index');
     Route::view('/about', 'front.about')->name('about');
@@ -22,13 +24,19 @@ Route::name('front.')->group(function () {
     Route::view('/contact', 'front.contact')->name('contact');
 });
 
+
+// admin routes
 Route::name('admin.')
     ->prefix(LaravelLocalization::setLocale() . '/admin')
     ->middleware([ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ])
     ->group(function () {
-
-    Route::middleware('auth')->group(function () {
+        Route::middleware('auth')->group(function () {
+        // ================================== Home Page ==================================
         Route::view('/', 'admin.index')->name('index');
+        // ================================== Services ==================================
+        Route::controller(ServiceController::class)->group(function () {
+           Route::resource('services', ServiceController::class); 
+        });
     });
     // Route::view('/login', 'admin.login')->name('login');
 

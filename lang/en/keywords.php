@@ -90,4 +90,18 @@ return [
     'old' => 'Old',
     'read' => 'Read',
     'unread' => 'Unread',
+    // new
+    'services' => 'Services',
+    'title' => 'Title',
+    'icon' => 'Icon',
+    'description' => 'Description',
+    'actions' => 'Actions',
+    'no_data_found' => 'No data found',
+    'add_new_services' => 'Add New Service',
+    'service_created_successfully' => 'Service Created Successfully',
+    'show_all_services' => 'Show All Services',
+    'edit_service' => 'Edit Services',
+    'show_service' => 'Show Service',
+    'service_updated_successfully' => 'Service Updated Successfully',
+    'service_deleted_successfully' => 'Service Deleted Successfully',
 ];
