@@ -103,5 +103,7 @@ return [
     'edit_service' => 'Edit Services',
     'show_service' => 'Show Service',
     'service_updated_successfully' => 'Service Updated Successfully',
-    'service_deleted_successfully' => 'Service Deleted Successfully',
+    'service_has_been_deleted_successfully' => 'Service Has Been Deleted Successfully',
+    'add_new' => 'Add New',
+    'are_you_sure_to_delete_this_record' => 'Are you sure to delete this record?',
 ];

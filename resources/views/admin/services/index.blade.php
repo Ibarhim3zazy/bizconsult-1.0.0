@@ -7,9 +7,8 @@
     <div class="row justify-content-center">
         <div class="col-12 row align-items-center">
             <h2 class="h5 page-title col">{{ __('keywords.services') }}</h2>
-            <div class="col-auto">
-                <a href="{{ route('admin.services.create') }}" class="btn btn-primary " role="button">Add New</a>
-            </div>
+            <x-add-new-button href="{{ route('admin.services.create') }}" />
+            <x-alert type="success" />
             <!-- Services Table -->
             <div class="col-md-12 my-4">
                 <div class="card shadow">
@@ -45,39 +44,15 @@
                                     <td width="10%">{{ $service->icon }}</td>
                                     <td width="50%">{{ $service->description }}</td>
                                     <td width="5%">
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm dropdown-toggle" type="button" id="dr1"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span class="text-muted sr-only">Action</span>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dr1">
-                                                <a class="dropdown-item"
-                                                    href="{{ route('admin.services.show',['service' => $service]) }}">{{
-                                                    __('keywords.show') }}</a>
-                                                <a class="dropdown-item"
-                                                    href="{{ route('admin.services.edit',['service' => $service]) }}">{{
-                                                    __('keywords.edit') }}</a>
-                                                <form
-                                                    action="{{ route('admin.services.destroy', ['service' => $service]) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="dropdown-item text-danger"
-                                                        onclick="return confirm('Are you sure to delete this record?')">{{
-                                                        __('keywords.remove') }}</button>
-                                                </form>
-                                            </div>
-                                        </div>
+                                        <x-action-button
+                                            hrefShow="{{ route('admin.services.show', ['service' => $service]) }}"
+                                            hrefEdit="{{ route('admin.services.edit', ['service' => $service]) }}"
+                                            hrefDelete="{{ route('admin.services.destroy', ['service' => $service]) }}" />
                                     </td>
                                 </tr>
                                 @endforeach
                                 @else
-                                <tr>
-                                    <td colspan="6">
-                                        <div class="alert-danger alert text-center">{{
-                                            __('keywords.no_data_found') }}</div>
-                                    </td>
-                                </tr>
+                                <x-no-records-found-alert />
                                 @endif
                             </tbody>
                         </table>

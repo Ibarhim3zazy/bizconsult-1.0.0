@@ -28,7 +28,12 @@ class UpdateServiceRequest extends FormRequest
         ];
     }
 
-    public function attributes()
+    /**
+     * Get the validation attributes that apply to the request.
+     * 
+     * @return array
+     */
+    public function attributes(): array
     {
         return [
             'title' => __('keywords.title'),

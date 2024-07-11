@@ -29,7 +29,7 @@
             <span>Components</span>
         </p>
         <ul class="navbar-nav flex-fill w-100 mb-2">
-            <li class="nav-item dropdown">
+            {{-- <li class="nav-item dropdown">
                 <a href="#ui-elements" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                     <i class="fe fe-codesandbox fe-16"></i>
                     <span class="ml-3 item-text">{{ __('keywords.services') }}</span>
@@ -51,14 +51,17 @@
                         </a>
                     </li>
                 </ul>
-            </li>
-            <li class="nav-item w-100">
-                <a class="nav-link" href="widgets.html">
-                    <i class="fe fe-layers fe-16"></i>
-                    <span class="ml-3 item-text">Widgets</span>
-                    <span class="badge badge-pill badge-primary">New</span>
-                </a>
-            </li>
+            </li> --}}
+            <x-sidebar-tab-dropdwon-head icon="fe-codesandbox" value="{{ __('keywords.services') }}" dropdown="true">
+                <x-slot name="dropDownLink">
+                    <x-sidebar-tab-dropdwon-link href="{{ route('front.service') }}" target="_blank" value="{{
+                        __('keywords.view') }}" badgeHiddenValue='false' />
+                    <x-sidebar-tab-dropdwon-link href="{{ route('admin.services.index') }}" target="_parent" value="{{
+                        __('keywords.all') }}" />
+                    <x-sidebar-tab-dropdwon-link href="{{ route('admin.services.create') }}" target="_parent" value="{{
+                        __('keywords.add_new') }}" />
+                </x-slot>
+            </x-sidebar-tab-dropdwon-head>
         </ul>
     </nav>
 </aside>

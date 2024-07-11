@@ -7,11 +7,6 @@
     <div class="row justify-content-center">
         <div class="col-12 row align-items-center">
             <h2 class="h5 page-title col">{{ __('keywords.show_service') }}</h2>
-            @if (Session::has('success'))
-            <div class="alert alert-success col-12 text-center">
-                {{ Session::get('success') }}
-            </div>
-            @endif
             <!-- Create Form -->
             <div class="col-md-12 my-4">
                 <div class="form-row">

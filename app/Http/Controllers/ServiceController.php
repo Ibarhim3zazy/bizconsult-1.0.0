@@ -13,7 +13,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::paginate(10);
+        $services = Service::paginate(config('pagination.count'));
         return view('admin.services.index', get_defined_vars());
     }
 
@@ -65,7 +65,7 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        $service->delete($service);
-        return back()->with('success', __('keywords.service_deleted_successfully'));
+        $service->delete();
+        return back()->with('success', __('keywords.service_has_been_deleted_successfully'));
     }
 }

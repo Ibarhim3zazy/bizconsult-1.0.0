@@ -7,11 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-12 row align-items-center">
             <h2 class="h5 page-title col">{{ __('keywords.edit_service') }}</h2>
-            @if (Session::has('success'))
-            <div class="alert alert-success col-12 text-center">
-                {{ Session::get('success') }}
-            </div>
-            @endif
+            <x-alert type="success" />
             <!-- Create Form -->
             <form class="col-md-12 my-4" method="POST"
                 action="{{ route('admin.services.update', ['service' => $service]) }}" enctype="multipart/form-data">
@@ -19,35 +15,27 @@
                 @method('PUT')
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputTitle4">{{ __('keywords.title') }}</label>
-                        <input type="text" class="form-control" id="inputTitle4" name="title"
-                            placeholder="{{ __('keywords.title') }}" value="{{ $service->title }}">
-                        @error('title')
-                        <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                        <x-form-label field="title"></x-form-label>
+                        <input type="text" class="form-control" id="title" name="title"
+                            placeholder="{{ __('keywords.title') }}" value="{{ $service->title ?? old('title') }}">
+                        <x-validation-error field="title"></x-validation-error>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputIcon4">{{ __('keywords.icon') }}</label>
-                        <input type="text" class="form-control" id="inputIcon4" name="icon"
-                            placeholder="{{ __('keywords.icon') }}" value="{{ $service->icon }}">
-                        @error('icon')
-                        <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                        <x-form-label field="icon"></x-form-label>
+                        <input type="text" class="form-control" id="icon" name="icon"
+                            placeholder="{{ __('keywords.icon') }}" value="{{ $service->icon ?? old('icon') }}">
+                        <x-validation-error field="icon"></x-validation-error>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="exampleFormControlTextarea1">{{ __('keywords.description') }}</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" name="description"
-                            rows="6">{{ $service->description }}</textarea>
-                        @error('description')
-                        <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                        <x-form-label field="description"></x-form-label>
+                        <textarea class="form-control" id="description" name="description"
+                            rows="6">{{ $service->description ?? old('description') }}</textarea>
+                        <x-validation-error field="description"></x-validation-error>
                     </div>
-                    <button type="submit" class="btn btn-primary">{{ __('keywords.save') }}</button>
-                    <a href="{{ route('admin.services.index') }}" class="btn btn-secondary ml-2">{{
-                        __('keywords.show_all_services')
-                        }}</a>
+                    <x-form-submit-button></x-form-submit-button>
+                    <x-show-all-form-button sectionName="services"></x-show-all-form-button>
             </form>
             <!-- Create Form -->
         </div>
