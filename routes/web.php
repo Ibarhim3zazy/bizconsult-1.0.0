@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FeatureController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
@@ -21,6 +22,7 @@ Route::name('front.')->group(function () {
     Route::view('/', 'front.index')->name('index');
     Route::view('/about', 'front.about')->name('about');
     Route::view('/service', 'front.service')->name('service');
+    Route::view('/feature', 'front.feature')->name('feature');
     Route::view('/contact', 'front.contact')->name('contact');
 });
 
@@ -37,6 +39,10 @@ Route::name('admin.')
         Route::controller(ServiceController::class)->group(function () {
            Route::resource('services', ServiceController::class); 
         });
+        // ================================== Features ==================================
+        Route::controller(FeatureController::class)->group(function () {
+            Route::resource('features', FeatureController::class); 
+         });
     });
     // Route::view('/login', 'admin.login')->name('login');
 

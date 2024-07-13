@@ -34,9 +34,7 @@
                         <x-validation-error field="decription"></x-validation-error>
                     </div>
                     <x-form-submit-button></x-form-submit-button>
-                    <a href="{{ route('admin.services.index') }}" class="btn btn-secondary ml-2">{{
-                        __('keywords.show_all_services')
-                        }}</a>
+                    <x-show-all-form-button sectionName="services"></x-show-all-form-button>
             </form>
             <!-- Create Form -->
         </div>

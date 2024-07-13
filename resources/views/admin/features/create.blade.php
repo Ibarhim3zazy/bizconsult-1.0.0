@@ -1,36 +1,45 @@
 @extends('admin.master')
 
-@section('title', __('keywords.services'))
+@section('title', __('keywords.features'))
 
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 row align-items-center">
-            <h2 class="h5 page-title col">{{ __('keywords.show_service') }}</h2>
+            <h2 class="h5 page-title col">{{ __('keywords.add_new_features') }}</h2>
+            <x-alert type="success" />
             <!-- Create Form -->
-            <div class="col-md-12 my-4">
+            <form class="col-md-12 my-4" method="POST" action="{{ route('admin.features.store') }}"
+                enctype="multipart/form-data">
+                @csrf
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputTitle4">{{ __('keywords.title') }}</label>
-                        <p class="form-control" id="inputTitle4">{{ $service->title }}</p>
+                        <x-form-label field="title"></x-form-label>
+                        <input type="text" class="form-control" id="title" name="title"
+                            placeholder="{{ __('keywords.title') }}" value="{{ old('title') }}">
+                        <x-validation-error field="title"></x-validation-error>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputIcon4">{{ __('keywords.icon') }}</label>
-                        <i class="{{ $service->icon }} fe-32 d-block"></i>
+                        <x-form-label field="icon"></x-form-label>
+                        <input type="text" class="form-control" id="icon" name="icon"
+                            placeholder="{{ __('keywords.icon') }}" value="{{ old('icon') }}">
+                        <x-validation-error field="icon"></x-validation-error>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="exampleFormControlTextarea1">{{ __('keywords.description') }}</label>
-                        <p class="form-control h-auto" id="exampleFormControlTextarea1">{{ $service->description }}
-                        </p>
+                        <x-form-label field="description"></x-form-label>
+                        <textarea class="form-control" id="description" name="description"
+                            rows="6">{{ old('description') }}</textarea>
+                        <x-validation-error field="decription"></x-validation-error>
                     </div>
-                    <x-show-all-form-button sectionName="services"></x-show-all-form-button>
-                </div>
-                <!-- Create Form -->
-            </div>
+                    <x-form-submit-button></x-form-submit-button>
+                    <x-show-all-form-button sectionName="features"></x-show-all-form-button>
+            </form>
+            <!-- Create Form -->
         </div>
     </div>
+</div>
 </div>
 <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel"
     aria-hidden="true">

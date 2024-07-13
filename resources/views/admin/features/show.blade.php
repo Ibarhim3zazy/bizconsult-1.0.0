@@ -1,31 +1,31 @@
 @extends('admin.master')
 
-@section('title', __('keywords.services'))
+@section('title', __('keywords.feature'))
 
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 row align-items-center">
-            <h2 class="h5 page-title col">{{ __('keywords.show_service') }}</h2>
+            <h2 class="h5 page-title col">{{ __('keywords.show_feature') }}</h2>
             <!-- Create Form -->
             <div class="col-md-12 my-4">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputTitle4">{{ __('keywords.title') }}</label>
-                        <p class="form-control" id="inputTitle4">{{ $service->title }}</p>
+                        <p class="form-control" id="inputTitle4">{{ $feature->title }}</p>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputIcon4">{{ __('keywords.icon') }}</label>
-                        <i class="{{ $service->icon }} fe-32 d-block"></i>
+                        <i class="{{ $feature->icon }} fe-32 d-block"></i>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="exampleFormControlTextarea1">{{ __('keywords.description') }}</label>
-                        <p class="form-control h-auto" id="exampleFormControlTextarea1">{{ $service->description }}
+                        <p class="form-control h-auto" id="exampleFormControlTextarea1">{{ $feature->description }}
                         </p>
                     </div>
-                    <x-show-all-form-button sectionName="services"></x-show-all-form-button>
+                    <x-show-all-form-button sectionName="features"></x-show-all-form-button>
                 </div>
                 <!-- Create Form -->
             </div>

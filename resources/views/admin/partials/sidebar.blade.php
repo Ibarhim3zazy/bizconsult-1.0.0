@@ -62,6 +62,16 @@
                         __('keywords.add_new') }}" />
                 </x-slot>
             </x-sidebar-tab-dropdwon-head>
+            <x-sidebar-tab-dropdwon-head icon="fe-feather" value="{{ __('keywords.features') }}" dropdown="true">
+                <x-slot name="dropDownLink">
+                    <x-sidebar-tab-dropdwon-link href="{{ route('front.feature') }}" target="_blank" value="{{
+                        __('keywords.view') }}" badgeHiddenValue='false' />
+                    <x-sidebar-tab-dropdwon-link href="{{ route('admin.features.index') }}" target="_parent" value="{{
+                        __('keywords.all') }}" />
+                    <x-sidebar-tab-dropdwon-link href="{{ route('admin.features.create') }}" target="_parent" value="{{
+                        __('keywords.add_new') }}" />
+                </x-slot>
+            </x-sidebar-tab-dropdwon-head>
         </ul>
     </nav>
 </aside>

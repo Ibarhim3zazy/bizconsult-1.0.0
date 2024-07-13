@@ -91,12 +91,16 @@ return [
     'read' => 'Read',
     'unread' => 'Unread',
     // new
+    // Common Translations
+    'actions' => 'Actions',
+    'no_data_found' => 'No data found',
+    'are_you_sure_to_delete_this_record' => 'Are you sure to delete this record?',
+    'add_new' => 'Add New',
+    // Service Module
     'services' => 'Services',
     'title' => 'Title',
     'icon' => 'Icon',
     'description' => 'Description',
-    'actions' => 'Actions',
-    'no_data_found' => 'No data found',
     'add_new_services' => 'Add New Service',
     'service_created_successfully' => 'Service Created Successfully',
     'show_all_services' => 'Show All Services',
@@ -104,6 +108,13 @@ return [
     'show_service' => 'Show Service',
     'service_updated_successfully' => 'Service Updated Successfully',
     'service_has_been_deleted_successfully' => 'Service Has Been Deleted Successfully',
-    'add_new' => 'Add New',
-    'are_you_sure_to_delete_this_record' => 'Are you sure to delete this record?',
+    // Feature Module
+    'features' => 'Features',
+    'add_new_features' => 'Add New Feature',
+    'feature_created_successfully' => 'Feature Created Successfully',
+    'show_all_features' => 'Show All Features',
+    'edit_feature' => 'Edit Features',
+    'show_feature' => 'Show Feature',
+    'feature_updated_successfully' => 'Feature Updated Successfully',
+    'feature_has_been_deleted_successfully' => 'Feature Has Been Deleted Successfully',
 ];

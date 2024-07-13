@@ -1,34 +1,65 @@
 @extends('admin.master')
 
-@section('title', __('keywords.services'))
+@section('title', __('keywords.features'))
 
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 row align-items-center">
-            <h2 class="h5 page-title col">{{ __('keywords.show_service') }}</h2>
-            <!-- Create Form -->
+            <h2 class="h5 page-title col">{{ __('keywords.features') }}</h2>
+            <x-add-new-button href="{{ route('admin.features.create') }}" />
+            <x-alert type="success" />
+            <!-- features Table -->
             <div class="col-md-12 my-4">
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputTitle4">{{ __('keywords.title') }}</label>
-                        <p class="form-control" id="inputTitle4">{{ $service->title }}</p>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputIcon4">{{ __('keywords.icon') }}</label>
-                        <i class="{{ $service->icon }} fe-32 d-block"></i>
+                <div class="card shadow">
+                    <div class="card-body">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="chall">
+                                            <label class="custom-control-label" for="d1"></label>
+                                        </div>
+                                    </th>
+                                    <th widtih="5%">#</th>
+                                    <th>{{ __('keywords.title') }}</th>
+                                    <th widtih="10%">{{ __('keywords.icon') }}</th>
+                                    <th width="50%">{{ __('keywords.description') }}</th>
+                                    <th width="5%">{{ __('keywords.actions') }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if ($features->count() !== 0)
+                                @foreach ($features as $feature)
+                                <tr>
+                                    <td>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="d1">
+                                            <label class="custom-control-label" for="d1"></label>
+                                        </div>
+                                    </td>
+                                    <td width="5%">{{ $features->firstItem() + $loop->index }}</td>
+                                    <td>{{ $feature->title }}</td>
+                                    <td width="10%">{{ $feature->icon }}</td>
+                                    <td width="50%">{{ $feature->description }}</td>
+                                    <td width="5%">
+                                        <x-action-button
+                                            hrefShow="{{ route('admin.features.show', ['feature' => $feature]) }}"
+                                            hrefEdit="{{ route('admin.features.edit', ['feature' => $feature]) }}"
+                                            hrefDelete="{{ route('admin.features.destroy', ['feature' => $feature]) }}" />
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @else
+                                <x-no-records-found-alert />
+                                @endif
+                            </tbody>
+                        </table>
+                        {{ $features->render('pagination::bootstrap-4') }}
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <label for="exampleFormControlTextarea1">{{ __('keywords.description') }}</label>
-                        <p class="form-control h-auto" id="exampleFormControlTextarea1">{{ $service->description }}
-                        </p>
-                    </div>
-                    <x-show-all-form-button sectionName="services"></x-show-all-form-button>
-                </div>
-                <!-- Create Form -->
-            </div>
+            </div> <!-- features Table -->
         </div>
     </div>
 </div>
