@@ -1,15 +1,14 @@
 @extends('admin.master')
 
-@section('title', __('keywords.features'))
+@section('title', __('keywords.messages'))
 
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 row align-items-center">
-            <h2 class="h5 page-title col">{{ __('keywords.features') }}</h2>
-            <x-add-new-button href="{{ route('admin.features.create') }}" />
+            <h2 class="h5 page-title col">{{ __('keywords.messages') }}</h2>
             <x-alert type="success" />
-            <!-- features Table -->
+            <!-- messages Table -->
             <div class="col-md-12 my-4">
                 <div class="card shadow">
                     <div class="card-body">
@@ -23,15 +22,16 @@
                                         </div>
                                     </th>
                                     <th widtih="5%">#</th>
-                                    <th>{{ __('keywords.title') }}</th>
-                                    <th widtih="10%">{{ __('keywords.icon') }}</th>
-                                    <th width="50%">{{ __('keywords.description') }}</th>
+                                    <th widtih="10%">{{ __('keywords.name') }}</th>
+                                    <th widtih="15%">{{ __('keywords.email') }}</th>
+                                    <th widtih="15%">{{ __('keywords.subject') }}</th>
+                                    <th>{{ __('keywords.message') }}</th>
                                     <th width="5%">{{ __('keywords.actions') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @if ($features->count() !== 0)
-                                @foreach ($features as $feature)
+                                @if ($messages->count() !== 0)
+                                @foreach ($messages as $message)
                                 <tr>
                                     <td>
                                         <div class="custom-control custom-checkbox">
@@ -39,15 +39,16 @@
                                             <label class="custom-control-label" for="d1"></label>
                                         </div>
                                     </td>
-                                    <td width="5%">{{ $features->firstItem() + $loop->index }}</td>
-                                    <td>{{ $feature->title }}</td>
-                                    <td width="10%">{{ $feature->icon }}</td>
-                                    <td width="50%">{{ $feature->description }}</td>
-                                    <td width="5%">
+                                    <td>{{ $messages->firstItem() + $loop->index }}</td>
+                                    <td>{{ $message->name }}</td>
+                                    <td>{{ $message->email }}</td>
+                                    <td>{{ $message->subject }}</td>
+                                    <td>{{ $message->message }}</td>
+                                    <td>
                                         <x-action-button
-                                            hrefShow="{{ route('admin.features.show', ['feature' => $feature]) }}"
-                                            hrefEdit="{{ route('admin.features.edit', ['feature' => $feature]) }}"
-                                            hrefDelete="{{ route('admin.features.destroy', ['feature' => $feature]) }}">
+                                            hrefShow="{{ route('admin.messages.show', ['message' => $message]) }}"
+                                            hrefEdit="false"
+                                            hrefDelete="{{ route('admin.messages.destroy', ['message' => $message]) }}">
                                         </x-action-button>
                                     </td>
                                 </tr>
@@ -57,10 +58,10 @@
                                 @endif
                             </tbody>
                         </table>
-                        {{ $features->render('pagination::bootstrap-4') }}
+                        {{ $messages->render('pagination::bootstrap-4') }}
                     </div>
                 </div>
-            </div> <!-- features Table -->
+            </div> <!-- messages Table -->
         </div>
     </div>
 </div>

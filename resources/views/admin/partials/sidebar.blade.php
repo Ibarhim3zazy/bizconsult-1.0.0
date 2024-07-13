@@ -72,6 +72,14 @@
                         __('keywords.add_new') }}" />
                 </x-slot>
             </x-sidebar-tab-dropdwon-head>
+            <x-sidebar-tab-dropdwon-head icon="fe-message-circle" value="{{ __('keywords.messages') }}" dropdown="true">
+                <x-slot name="dropDownLink">
+                    <x-sidebar-tab-dropdwon-link href="{{ route('front.contact') }}" target="_blank" value="{{
+                        __('keywords.view') }}" badgeHiddenValue='false' />
+                    <x-sidebar-tab-dropdwon-link href="{{ route('admin.messages.index') }}" target="_parent" value="{{
+                        __('keywords.all') }}" />
+                </x-slot>
+            </x-sidebar-tab-dropdwon-head>
         </ul>
     </nav>
 </aside>

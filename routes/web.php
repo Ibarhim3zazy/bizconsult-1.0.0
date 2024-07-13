@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
@@ -42,6 +43,10 @@ Route::name('admin.')
         // ================================== Features ==================================
         Route::controller(FeatureController::class)->group(function () {
             Route::resource('features', FeatureController::class); 
+         });
+         // ================================== Messages ==================================
+        Route::controller(MessageController::class)->group(function () {
+            Route::resource('messages', MessageController::class)->only(['index', 'show', 'destroy']); 
          });
     });
     // Route::view('/login', 'admin.login')->name('login');

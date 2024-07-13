@@ -117,4 +117,10 @@ return [
     'show_feature' => 'Show Feature',
     'feature_updated_successfully' => 'Feature Updated Successfully',
     'feature_has_been_deleted_successfully' => 'Feature Has Been Deleted Successfully',
+    // Message Module
+    'subject' => 'Subject',
+    'message' => 'Message',
+    'your_message_has_been_sent_successfully' => 'Your message has been sent successfully',
+    'message_has_been_deleted_successfully' => 'Message Has Been Deleted Successfully',
+    'show_all_messages' => 'Show All Messages',
 ];

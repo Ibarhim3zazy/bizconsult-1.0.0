@@ -13,7 +13,7 @@ class ActionButtons extends Component
      */
     public function __construct(public string $hrefShow = 'false', public string $hrefEdit = 'false', public string $hrefDelete = 'false')
     {
-        //
+        // 
     }
 
     /**
