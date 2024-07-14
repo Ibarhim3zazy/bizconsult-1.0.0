@@ -4,15 +4,15 @@
         <span class="text-muted sr-only">Action</span>
     </button>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dr1">
-        @if($hrefShow !== "false")
+        @if($hrefShow !== "")
         <a class="dropdown-item" href="{{ $hrefShow }}">{{
             __('keywords.show') }}</a>
         @endif
-        @if($hrefEdit !== "false")
+        @if($hrefEdit !== "")
         <a class="dropdown-item" href="{{ $hrefEdit }}">{{
             __('keywords.edit') }}</a>
         @endif
-        @if($hrefDelete !== "false")
+        @if($hrefDelete !== "")
         <form action="{{ $hrefDelete }}" method="POST">
             @csrf
             @method('DELETE')

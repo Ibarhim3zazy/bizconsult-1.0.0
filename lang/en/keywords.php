@@ -123,4 +123,7 @@ return [
     'your_message_has_been_sent_successfully' => 'Your message has been sent successfully',
     'message_has_been_deleted_successfully' => 'Message Has Been Deleted Successfully',
     'show_all_messages' => 'Show All Messages',
+    // subscriber Module
+    'subscribers' => 'Subscribers',
+    'subscriber_has_been_deleted_successfully' => 'Subscriber Has Been Deleted Successfully',
 ];

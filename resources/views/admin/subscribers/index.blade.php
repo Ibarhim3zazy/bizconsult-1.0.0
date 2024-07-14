@@ -1,37 +1,34 @@
 @extends('admin.master')
 
-@section('title', __('keywords.messages'))
+@section('title', __('keywords.subscribers'))
 
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 row align-items-center">
-            <h2 class="h5 page-title col">{{ __('keywords.messages') }}</h2>
+            <h2 class="h5 page-title col">{{ __('keywords.subscribers') }}</h2>
             <x-alert type="success" />
-            <!-- messages Table -->
+            <!-- subscribers Table -->
             <div class="col-md-12 my-4">
                 <div class="card shadow">
                     <div class="card-body">
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>
+                                    <th width="2%">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="chall">
                                             <label class="custom-control-label" for="d1"></label>
                                         </div>
                                     </th>
                                     <th width="5%">#</th>
-                                    <th width="10%">{{ __('keywords.name') }}</th>
-                                    <th width="15%">{{ __('keywords.email') }}</th>
-                                    <th width="15%">{{ __('keywords.subject') }}</th>
-                                    <th>{{ __('keywords.message') }}</th>
+                                    <th>{{ __('keywords.email') }}</th>
                                     <th width="5%">{{ __('keywords.actions') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @if ($messages->count() !== 0)
-                                @foreach ($messages as $message)
+                                @if ($subscribers->count() !== 0)
+                                @foreach ($subscribers as $subscriber)
                                 <tr>
                                     <td>
                                         <div class="custom-control custom-checkbox">
@@ -39,16 +36,11 @@
                                             <label class="custom-control-label" for="d1"></label>
                                         </div>
                                     </td>
-                                    <td>{{ $messages->firstItem() + $loop->index }}</td>
-                                    <td>{{ $message->name }}</td>
-                                    <td>{{ $message->email }}</td>
-                                    <td>{{ $message->subject }}</td>
-                                    <td>{{ $message->message }}</td>
+                                    <td>{{ $subscribers->firstItem() + $loop->index }}</td>
+                                    <td>{{ $subscriber->email }}</td>
                                     <td>
                                         <x-action-button
-                                            hrefShow="{{ route('admin.messages.show', ['message' => $message]) }}"
-                                            hrefEdit="false"
-                                            hrefDelete="{{ route('admin.messages.destroy', ['message' => $message]) }}">
+                                            hrefDelete="{{ route('admin.subscribers.destroy', ['subscriber' => $subscriber]) }}">
                                         </x-action-button>
                                     </td>
                                 </tr>
@@ -58,10 +50,10 @@
                                 @endif
                             </tbody>
                         </table>
-                        {{ $messages->render('pagination::bootstrap-4') }}
+                        {{ $subscribers->render('pagination::bootstrap-4') }}
                     </div>
                 </div>
-            </div> <!-- messages Table -->
+            </div> <!-- subscribers Table -->
         </div>
     </div>
 </div>

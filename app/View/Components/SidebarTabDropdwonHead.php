@@ -8,12 +8,13 @@ use Illuminate\View\Component;
 
 class SidebarTabDropdwonHead extends Component
 {
+    public string $dropdownUniqid;
     /**
      * Create a new component instance.
      */
-    public function __construct(public string $icon, public string $value, public string $dropdown)
+    public function __construct(public string $icon, public string $value, public string $dropdown, public string $href = '')
     {
-        //
+        $this->dropdownUniqid = uniqid('ui-elements_');
     }
 
     /**

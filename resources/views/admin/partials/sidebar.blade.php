@@ -80,6 +80,9 @@
                         __('keywords.all') }}" />
                 </x-slot>
             </x-sidebar-tab-dropdwon-head>
+            <x-sidebar-tab-dropdwon-head icon="fe-users" value="{{ __('keywords.subscribers') }}" dropdown="false"
+                href="{{ route('admin.subscribers.index') }}">
+            </x-sidebar-tab-dropdwon-head>
         </ul>
     </nav>
 </aside>

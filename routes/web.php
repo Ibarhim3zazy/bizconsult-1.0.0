@@ -1,10 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\MessageController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SubscriberController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -47,6 +48,10 @@ Route::name('admin.')
          // ================================== Messages ==================================
         Route::controller(MessageController::class)->group(function () {
             Route::resource('messages', MessageController::class)->only(['index', 'show', 'destroy']); 
+         });
+         // ================================== Subscribers ==================================
+        Route::controller(SubscriberController::class)->group(function () {
+            Route::resource('subscribers', SubscriberController::class)->only(['index', 'destroy']); 
          });
     });
     // Route::view('/login', 'admin.login')->name('login');

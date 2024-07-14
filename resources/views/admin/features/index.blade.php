@@ -22,9 +22,9 @@
                                             <label class="custom-control-label" for="d1"></label>
                                         </div>
                                     </th>
-                                    <th widtih="5%">#</th>
+                                    <th width="5%">#</th>
                                     <th>{{ __('keywords.title') }}</th>
-                                    <th widtih="10%">{{ __('keywords.icon') }}</th>
+                                    <th width="10%">{{ __('keywords.icon') }}</th>
                                     <th width="50%">{{ __('keywords.description') }}</th>
                                     <th width="5%">{{ __('keywords.actions') }}</th>
                                 </tr>

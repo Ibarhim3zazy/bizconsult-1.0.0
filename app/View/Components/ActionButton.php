@@ -6,14 +6,14 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class ActionButtons extends Component
+class ActionButton extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct(public string $hrefShow = 'false', public string $hrefEdit = 'false', public string $hrefDelete = 'false')
+    public function __construct(public string $hrefShow = '', public string $hrefEdit = '', public string $hrefDelete = '')
     {
-        // 
+        //
     }
 
     /**
@@ -21,6 +21,6 @@ class ActionButtons extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.action-buttons');
+        return view('components.action-button');
     }
 }
