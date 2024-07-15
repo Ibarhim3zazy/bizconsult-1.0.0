@@ -1,41 +1,47 @@
 @extends('admin.master')
 
-@section('title', __('keywords.services'))
+@section('title', __('keywords.testimonials'))
 
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 row align-items-center">
-            <h2 class="h5 page-title col">{{ __('keywords.edit_service') }}</h2>
+            <h2 class="h5 page-title col">{{ __('keywords.add_new_testimonial') }}</h2>
             <x-alert type="success" />
             <!-- Create Form -->
-            <form class="col-md-12 my-4" method="POST"
-                action="{{ route('admin.services.update', ['service' => $service]) }}" enctype="multipart/form-data">
+            <form class="col-md-12 my-4" method="POST" action="{{ route('admin.testimonials.store') }}"
+                enctype="multipart/form-data">
                 @csrf
-                @method('PUT')
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <x-form-label field="title"></x-form-label>
-                        <input type="text" class="form-control" id="title" name="title"
-                            placeholder="{{ __('keywords.title') }}" value="{{ $service->title ?? old('title') }}">
-                        <x-validation-error field="title"></x-validation-error>
+                        <x-form-label field="name"></x-form-label>
+                        <input type="text" class="form-control" id="name" name="name"
+                            placeholder="{{ __('keywords.name') }}" value="{{ old('name') }}">
+                        <x-validation-error field="name"></x-validation-error>
                     </div>
                     <div class="form-group col-md-6">
-                        <x-form-label field="icon"></x-form-label>
-                        <input type="text" class="form-control" id="icon" name="icon"
-                            placeholder="{{ __('keywords.icon') }}" value="{{ $service->icon ?? old('icon') }}">
-                        <x-validation-error field="icon"></x-validation-error>
+                        <x-form-label field="position"></x-form-label>
+                        <input type="text" class="form-control" id="position" name="position"
+                            placeholder="{{ __('keywords.position') }}" value="{{ old('position') }}">
+                        <x-validation-error field="position"></x-validation-error>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <x-form-label field="image"></x-form-label>
+                        <input type="file" class="form-control-file" id="image" name="image">
+                        <x-validation-error field="image"></x-validation-error>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <x-form-label field="description"></x-form-label>
                         <textarea class="form-control" id="description" name="description"
-                            rows="6">{{ $service->description ?? old('description') }}</textarea>
-                        <x-validation-error field="description"></x-validation-error>
+                            rows="6">{{ old('description') }}</textarea>
+                        <x-validation-error field="decription"></x-validation-error>
                     </div>
                     <x-form-submit-button></x-form-submit-button>
-                    <x-show-all-form-button sectionName="services"></x-show-all-form-button>
+                    <x-show-all-form-button sectionName="testimonials"></x-show-all-form-button>
                 </div>
             </form>
             <!-- Create Form -->

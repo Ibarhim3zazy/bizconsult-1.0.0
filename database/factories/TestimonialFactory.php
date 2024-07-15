@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Message>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Testimonial>
  */
-class MessageFactory extends Factory
+class TestimonialFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,9 +18,9 @@ class MessageFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'subject' => $this->faker->sentence(),
-            'message' => $this->faker->paragraph(4),
+            'position' => $this->faker->sentence(3),
+            'description' => $this->faker->paragraph(3),
+            'image' => $this->faker->imageUrl(640, 480),
         ];
     }
 }

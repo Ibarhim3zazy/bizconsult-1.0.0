@@ -1,11 +1,14 @@
 <?php
 
+use App\Models\Testimonial;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SubscriberController;
+use App\Http\Controllers\TestimonialController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -53,6 +56,15 @@ Route::name('admin.')
         Route::controller(SubscriberController::class)->group(function () {
             Route::resource('subscribers', SubscriberController::class)->only(['index', 'destroy']); 
          });
+         // ================================== Testimonials ==================================
+         Route::controller(TestimonialController::class)->group(function () {
+            Route::resource('testimonials', TestimonialController::class); 
+         });
+         // ================================== Settings ==================================
+         Route::controller(SettingController::class)->group(function () {
+            Route::resource('settings', SettingController::class)->only(['index', 'update']); 
+         });
+         
     });
     // Route::view('/login', 'admin.login')->name('login');
 

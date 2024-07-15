@@ -36,6 +36,7 @@
                     </div>
                     <x-form-submit-button></x-form-submit-button>
                     <x-show-all-form-button sectionName="features"></x-show-all-form-button>
+                </div>
             </form>
             <!-- Create Form -->
         </div>

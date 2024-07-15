@@ -83,6 +83,26 @@
             <x-sidebar-tab-dropdwon-head icon="fe-users" value="{{ __('keywords.subscribers') }}" dropdown="false"
                 href="{{ route('admin.subscribers.index') }}">
             </x-sidebar-tab-dropdwon-head>
+            <x-sidebar-tab-dropdwon-head icon="fe-edit-3" value="{{ __('keywords.testimonials') }}" dropdown="true">
+                <x-slot name="dropDownLink">
+                    <x-sidebar-tab-dropdwon-link href="{{ route('front.index') }}#testimonialials" target="_blank"
+                        value="{{
+                        __('keywords.view') }}" badgeHiddenValue='false' />
+                    <x-sidebar-tab-dropdwon-link href="{{ route('admin.testimonials.index') }}" target="_parent" value="{{
+                        __('keywords.all') }}" />
+                    <x-sidebar-tab-dropdwon-link href="{{ route('admin.testimonials.create') }}" target="_parent" value="{{
+                        __('keywords.add_new') }}" />
+                </x-slot>
+            </x-sidebar-tab-dropdwon-head>
+            <x-sidebar-tab-dropdwon-head icon="fe-settings" value="{{ __('keywords.settings') }}" dropdown="true">
+                <x-slot name="dropDownLink">
+                    <x-sidebar-tab-dropdwon-link href="{{ route('front.index') }}#testimonialials" target="_blank"
+                        value="{{
+                        __('keywords.view') }}" badgeHiddenValue='false' />
+                    <x-sidebar-tab-dropdwon-link href="{{ route('admin.settings.index') }}" target="_parent" value="{{
+                        __('keywords.edit') }}" />
+                </x-slot>
+            </x-sidebar-tab-dropdwon-head>
         </ul>
     </nav>
 </aside>

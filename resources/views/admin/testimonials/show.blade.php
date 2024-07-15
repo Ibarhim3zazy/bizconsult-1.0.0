@@ -1,47 +1,42 @@
 @extends('admin.master')
 
-@section('title', __('keywords.services'))
+@section('title', __('keywords.testimonials'))
 
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 row align-items-center">
-            <h2 class="h5 page-title col">{{ __('keywords.edit_service') }}</h2>
-            <x-alert type="success" />
+            <h2 class="h5 page-title col">{{ __('keywords.show_testimonial') }}</h2>
             <!-- Create Form -->
-            <form class="col-md-12 my-4" method="POST"
-                action="{{ route('admin.services.update', ['service' => $service]) }}" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
+            <div class="col-md-12 my-4">
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <x-form-label field="title"></x-form-label>
-                        <input type="text" class="form-control" id="title" name="title"
-                            placeholder="{{ __('keywords.title') }}" value="{{ $service->title ?? old('title') }}">
-                        <x-validation-error field="title"></x-validation-error>
+                    <div class="form-group col-md-4">
+                        <label for="inputName4">{{ __('keywords.name') }}</label>
+                        <p class="form-control" id="inputName4">{{ $testimonial->name }}</p>
                     </div>
-                    <div class="form-group col-md-6">
-                        <x-form-label field="icon"></x-form-label>
-                        <input type="text" class="form-control" id="icon" name="icon"
-                            placeholder="{{ __('keywords.icon') }}" value="{{ $service->icon ?? old('icon') }}">
-                        <x-validation-error field="icon"></x-validation-error>
+                    <div class="form-group col-md-4">
+                        <label for="inputPosition4">{{ __('keywords.position') }}</label>
+                        <p class="form-control" id="inputPosition4">{{ $testimonial->position }}</p>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputImage4">{{ __('keywords.image') }}</label>
+                        <img src="{{ asset(trim(" storage/testimonials/$testimonial->image")) }}"
+                        class="form-control-file" id="inputImage4" alt="{{ $testimonial->name }}" style="width:100px,
+                        height:100px">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <x-form-label field="description"></x-form-label>
-                        <textarea class="form-control" id="description" name="description"
-                            rows="6">{{ $service->description ?? old('description') }}</textarea>
-                        <x-validation-error field="description"></x-validation-error>
+                        <label for="exampleFormControlTextarea1">{{ __('keywords.description') }}</label>
+                        <p class="form-control h-auto" id="exampleFormControlTextarea1">{{ $testimonial->description }}
+                        </p>
                     </div>
-                    <x-form-submit-button></x-form-submit-button>
-                    <x-show-all-form-button sectionName="services"></x-show-all-form-button>
+                    <x-show-all-form-button sectionName="testimonials"></x-show-all-form-button>
                 </div>
-            </form>
-            <!-- Create Form -->
+                <!-- Create Form -->
+            </div>
         </div>
     </div>
-</div>
 </div>
 <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel"
     aria-hidden="true">

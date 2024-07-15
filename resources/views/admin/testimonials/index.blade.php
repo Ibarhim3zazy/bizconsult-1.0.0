@@ -1,47 +1,74 @@
 @extends('admin.master')
 
-@section('title', __('keywords.services'))
+@section('title', __('keywords.testimonials'))
 
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 row align-items-center">
-            <h2 class="h5 page-title col">{{ __('keywords.edit_service') }}</h2>
+            <h2 class="h5 page-title col">{{ __('keywords.testimonials') }}</h2>
+            <x-add-new-button href="{{ route('admin.testimonials.create') }}" />
             <x-alert type="success" />
-            <!-- Create Form -->
-            <form class="col-md-12 my-4" method="POST"
-                action="{{ route('admin.services.update', ['service' => $service]) }}" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <x-form-label field="title"></x-form-label>
-                        <input type="text" class="form-control" id="title" name="title"
-                            placeholder="{{ __('keywords.title') }}" value="{{ $service->title ?? old('title') }}">
-                        <x-validation-error field="title"></x-validation-error>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <x-form-label field="icon"></x-form-label>
-                        <input type="text" class="form-control" id="icon" name="icon"
-                            placeholder="{{ __('keywords.icon') }}" value="{{ $service->icon ?? old('icon') }}">
-                        <x-validation-error field="icon"></x-validation-error>
+            <!-- testimonials Table -->
+            <div class="col-md-12 my-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th width="2%">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="chall">
+                                            <label class="custom-control-label" for="d1"></label>
+                                        </div>
+                                    </th>
+                                    <th width="5%">#</th>
+                                    <th width="20%">{{ __('keywords.name') }}</th>
+                                    <th width="10%">{{ __('keywords.position') }}</th>
+                                    <th width="10%">{{ __('keywords.image') }}</th>
+                                    <th>{{ __('keywords.description') }}</th>
+                                    <th width="5%">{{ __('keywords.actions') }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if ($testimonials->count() !== 0)
+                                @foreach ($testimonials as $testimonial)
+                                <tr>
+                                    <td>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="d1">
+                                            <label class="custom-control-label" for="d1"></label>
+                                        </div>
+                                    </td>
+                                    <td width="5%">{{ $testimonials->firstItem() + $loop->index }}</td>
+                                    <td>{{ $testimonial->name }}</td>
+                                    <td width="10%">{{ $testimonial->position }}</td>
+                                    <td width="10%">
+                                        <img src="{{ file_exists(trim(" storage/testimonials/$testimonial->image")) ?
+                                        asset("storage/testimonials/$testimonial->image") :
+                                        $testimonial->image }}"
+                                        alt="{{ $testimonial->name }}" width="100px">
+                                    </td>
+                                    <td width="50%">{{ $testimonial->description }}</td>
+                                    <td width="5%">
+                                        <x-action-button
+                                            hrefShow="{{ route('admin.testimonials.show', ['testimonial' => $testimonial]) }}"
+                                            hrefEdit="{{ route('admin.testimonials.edit', ['testimonial' => $testimonial]) }}"
+                                            hrefDelete="{{ route('admin.testimonials.destroy', ['testimonial' => $testimonial]) }}" />
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @else
+                                <x-no-records-found-alert />
+                                @endif
+                            </tbody>
+                        </table>
+                        {{ $testimonials->render('pagination::bootstrap-4') }}
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <x-form-label field="description"></x-form-label>
-                        <textarea class="form-control" id="description" name="description"
-                            rows="6">{{ $service->description ?? old('description') }}</textarea>
-                        <x-validation-error field="description"></x-validation-error>
-                    </div>
-                    <x-form-submit-button></x-form-submit-button>
-                    <x-show-all-form-button sectionName="services"></x-show-all-form-button>
-                </div>
-            </form>
-            <!-- Create Form -->
+            </div> <!-- testimonials Table -->
         </div>
     </div>
-</div>
 </div>
 <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel"
     aria-hidden="true">

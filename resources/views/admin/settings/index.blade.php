@@ -1,42 +1,81 @@
 @extends('admin.master')
 
-@section('title', __('keywords.services'))
+@section('title', __('keywords.settings'))
 
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 row align-items-center">
-            <h2 class="h5 page-title col">{{ __('keywords.edit_service') }}</h2>
+            <h2 class="h5 page-title col">{{ __('keywords.edit_settings') }}</h2>
             <x-alert type="success" />
             <!-- Create Form -->
             <form class="col-md-12 my-4" method="POST"
-                action="{{ route('admin.services.update', ['service' => $service]) }}" enctype="multipart/form-data">
+                action="{{ route('admin.settings.update', ['setting' => $setting]) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <x-form-label field="title"></x-form-label>
-                        <input type="text" class="form-control" id="title" name="title"
-                            placeholder="{{ __('keywords.title') }}" value="{{ $service->title ?? old('title') }}">
-                        <x-validation-error field="title"></x-validation-error>
+                        <x-form-label field="address"></x-form-label>
+                        <input type="text" class="form-control" id="address" name="address"
+                            placeholder="{{ __('keywords.address') }}"
+                            value="{{ $setting->address ?? old('address') }}">
+                        <x-validation-error field="address"></x-validation-error>
                     </div>
                     <div class="form-group col-md-6">
-                        <x-form-label field="icon"></x-form-label>
-                        <input type="text" class="form-control" id="icon" name="icon"
-                            placeholder="{{ __('keywords.icon') }}" value="{{ $service->icon ?? old('icon') }}">
-                        <x-validation-error field="icon"></x-validation-error>
+                        <x-form-label field="email"></x-form-label>
+                        <input type="text" class="form-control" id="email" name="email"
+                            placeholder="{{ __('keywords.email') }}" value="{{ $setting->email ?? old('email') }}">
+                        <x-validation-error field="email"></x-validation-error>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <x-form-label field="description"></x-form-label>
-                        <textarea class="form-control" id="description" name="description"
-                            rows="6">{{ $service->description ?? old('description') }}</textarea>
-                        <x-validation-error field="description"></x-validation-error>
+                    <div class="form-group col-md-6">
+                        <x-form-label field="phone"></x-form-label>
+                        <input type="text" class="form-control" id="phone" name="phone"
+                            placeholder="{{ __('keywords.phone') }}" value="{{ $setting->phone ?? old('phone') }}">
+                        <x-validation-error field="phone"></x-validation-error>
                     </div>
-                    <x-form-submit-button></x-form-submit-button>
-                    <x-show-all-form-button sectionName="services"></x-show-all-form-button>
+                    <div class="form-group col-md-6">
+                        <x-form-label field="facebook"></x-form-label>
+                        <input type="text" class="form-control" id="facebook" name="facebook"
+                            placeholder="{{ __('keywords.facebook') }}"
+                            value="{{ $setting->facebook ?? old('facebook') }}">
+                        <x-validation-error field="facebook"></x-validation-error>
+                    </div>
                 </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <x-form-label field="twitter"></x-form-label>
+                        <input type="text" class="form-control" id="twitter" name="twitter"
+                            placeholder="{{ __('keywords.twitter') }}"
+                            value="{{ $setting->twitter ?? old('twitter') }}">
+                        <x-validation-error field="twitter"></x-validation-error>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <x-form-label field="youtube"></x-form-label>
+                        <input type="text" class="form-control" id="youtube" name="youtube"
+                            placeholder="{{ __('keywords.youtube') }}"
+                            value="{{ $setting->youtube ?? old('youtube') }}">
+                        <x-validation-error field="youtube"></x-validation-error>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <x-form-label field="instagram"></x-form-label>
+                        <input type="text" class="form-control" id="instagram" name="instagram"
+                            placeholder="{{ __('keywords.instagram') }}"
+                            value="{{ $setting->instagram ?? old('instagram') }}">
+                        <x-validation-error field="instagram"></x-validation-error>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <x-form-label field="linkedin"></x-form-label>
+                        <input type="text" class="form-control" id="linkedin" name="linkedin"
+                            placeholder="{{ __('keywords.linkedin') }}"
+                            value="{{ $setting->linkedin ?? old('linkedin') }}">
+                        <x-validation-error field="linkedin"></x-validation-error>
+                    </div>
+                </div>
+                <x-form-submit-button></x-form-submit-button>
             </form>
             <!-- Create Form -->
         </div>

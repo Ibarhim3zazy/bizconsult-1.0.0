@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             FeatureSeeder::class,
             MessageSeeder::class,
             SubscriberSeeder::class,
+            TestimonialSeeder::class,
+            SettingSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 

@@ -33,10 +33,11 @@
                     </div>
                     <x-show-all-form-button sectionName="messages"></x-show-all-form-button>
                 </div>
-                <!-- Create Form -->
             </div>
+            <!-- Create Form -->
         </div>
     </div>
+</div>
 </div>
 <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel"
     aria-hidden="true">
