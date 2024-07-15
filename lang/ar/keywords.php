@@ -1,6 +1,7 @@
 <?php
 
 return [
+    // Common Translations
     'index' => 'الرئيسية',
     'welcome' => 'مرحبا',
     'login' => 'تسجيل الدخول',
@@ -16,15 +17,11 @@ return [
     'dashboard' => 'لوحة التحكم',
     'users' => 'المستخدمين',
     'create' => 'إضافة',
-    'edit' => 'تعديل',
     'show' => 'عرض',
     'delete' => 'حذف',
     'actions' => 'الإجراءات',
     'name' => 'الاسم',
-    'email' => 'البريد الإلكتروني',
     'password_confirmation' => 'تأكيد كلمة المرور',
-    'address' => 'العنوان',
-    'phone' => 'الهاتف',
     'city' => 'المدينة',
     'country' => 'الدولة',
     'postal_code' => 'الرمز البريدي',
@@ -54,7 +51,6 @@ return [
     'restore' => 'استعادة',
     'restore_successfully' => 'تمت الاستعادة بنجاح',
     'profile' => 'الملف الشخصي',
-    'settings' => 'الإعدادات',
     'language' => 'اللغة',
     'help' => 'المساعدة',
     'support' => 'الدعم',
@@ -84,10 +80,73 @@ return [
     'send' => 'إرسال',
     'notification' => 'إشعار',
     'notifications' => 'الإشعارات',
-    'message' => 'رسالة',
     'messages' => 'الرسائل',
     'new' => 'جديد',
     'old' => 'قديم',
     'read' => 'مقروء',
     'unread' => 'غير مقروء',
+    'no_data_found' => 'لم يتم العثور على بيانات',
+    'are_you_sure_to_delete_this_record' => 'هل أنت متأكد من حذف هذا السجل؟',
+    'add_new' => 'أضف جديد',
+
+    // Service Module
+    'services' => 'الخدمات',
+    'title' => 'العنوان',
+    'icon' => 'الأيقونة',
+    'description' => 'الوصف',
+    'add_new_services' => 'أضف خدمة جديدة',
+    'service_created_successfully' => 'تم إنشاء الخدمة بنجاح',
+    'show_all_services' => 'عرض جميع الخدمات',
+    'edit_service' => 'تعديل الخدمة',
+    'show_service' => 'عرض الخدمة',
+    'service_updated_successfully' => 'تم تحديث الخدمة بنجاح',
+    'service_has_been_deleted_successfully' => 'تم حذف الخدمة بنجاح',
+
+    // Feature Module
+    'features' => 'الميزات',
+    'add_new_features' => 'أضف ميزة جديدة',
+    'feature_created_successfully' => 'تم إنشاء الميزة بنجاح',
+    'show_all_features' => 'عرض جميع الميزات',
+    'edit_feature' => 'تعديل الميزة',
+    'show_feature' => 'عرض الميزة',
+    'feature_updated_successfully' => 'تم تحديث الميزة بنجاح',
+    'feature_has_been_deleted_successfully' => 'تم حذف الميزة بنجاح',
+
+    // Message Module
+    'subject' => 'الموضوع',
+    'message' => 'الرسالة',
+    'your_message_has_been_sent_successfully' => 'تم إرسال رسالتك بنجاح',
+    'message_has_been_deleted_successfully' => 'تم حذف الرسالة بنجاح',
+    'show_all_messages' => 'عرض جميع الرسائل',
+
+    // Subscriber Module
+    'subscribers' => 'المشتركين',
+    'subscriber_has_been_deleted_successfully' => 'تم حذف المشترك بنجاح',
+    'you_have_subscribed_successfully' => 'تم الاشتراك بنجاح',
+
+    // Testimonials Module
+    'testimonials' => 'التوصيات',
+    'position' => 'المنصب',
+    'image' => 'الصورة',
+    'add_new_testimonial' => 'أضف توصية جديدة',
+    'testimonial_created_successfully' => 'تم إنشاء التوصية بنجاح',
+    'show_all_testimonials' => 'عرض جميع التوصيات',
+    'edit_testimonial' => 'تعديل التوصية',
+    'show_testimonial' => 'عرض التوصية',
+    'testimonial_updated_successfully' => 'تم تحديث التوصية بنجاح',
+    'testimonial_has_been_deleted_successfully' => 'تم حذف التوصية بنجاح',
+
+    // Settings Module
+    'settings' => 'الإعدادات',
+    'edit' => 'تعديل',
+    'settings_updated_successfully' => 'تم تحديث الإعدادات بنجاح',
+    'edit_settings' => 'تعديل الإعدادات',
+    'address' => 'العنوان',
+    'phone' => 'الهاتف',
+    'email' => 'البريد الإلكتروني',
+    'facebook' => 'فيسبوك',
+    'twitter' => 'تويتر',
+    'youtube' => 'يوتيوب',
+    'linkedin' => 'لينكدإن',
+    'instagram' => 'إنستغرام',
 ];

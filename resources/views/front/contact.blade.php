@@ -22,31 +22,40 @@
                 <p class="text-center mb-4">The contact form is currently inactive. Get a functional and working contact
                     form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're
                     done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                <form>
+                <x-alert></x-alert>
+                <form action="{{ route('front.contact.store') }}" method="POST">
+                    @csrf
                     <div class="row g-3">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" name="name"
+                                    value="{{ old('name') }}">
                                 <label for="name">Your Name</label>
+                                <x-validation-error field="name"></x-validation-error>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email"
+                                    name="email" value="{{ old('email') }}">
                                 <label for="email">Your Email</label>
+                                <x-validation-error field="email"></x-validation-error>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                <input type="text" class="form-control" id="subject" placeholder="Subject"
+                                    name="subject" value="{{ old('subject') }}">
                                 <label for="subject">Subject</label>
+                                <x-validation-error field="subject"></x-validation-error>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
                                 <textarea class="form-control" placeholder="Leave a message here" id="message"
-                                    style="height: 150px"></textarea>
+                                    style="height: 150px" name="message">{{ old('message') }}</textarea>
                                 <label for="message">Message</label>
+                                <x-validation-error field="message"></x-validation-error>
                             </div>
                         </div>
                         <div class="col-12">

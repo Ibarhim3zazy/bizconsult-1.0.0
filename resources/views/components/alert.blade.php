@@ -1,5 +1,5 @@
-@if (Session::has($type))
+@if (Session::has($session))
 <div class="alert alert-{{ $type }} w-100 mt-3 text-center">
-    {{ Session::get($type) }}
+    {{ Session::get($session) }}
 </div>
 @endif

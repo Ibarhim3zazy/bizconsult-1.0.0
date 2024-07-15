@@ -18,21 +18,12 @@ class SubscriberController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        // return view('admin.subscribers.create');
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(StoreSubscriberRequest $request)
     {
-        // $data = $request->validated();
-        // Subscriber::create($data);
-        // return back()->with('success', __('keywords.service_created_successfully'));
+        Subscriber::create($request->validated());
+        return back()->with('subscriber_success_message', __('keywords.you_have_subscribed_successfully'));
     }
 
     /**

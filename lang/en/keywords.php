@@ -1,6 +1,7 @@
 <?php
 
 return [
+    // Common Translations
     'index' => 'Home',
     'welcome' => 'Welcome',
     'login' => 'Login',
@@ -18,7 +19,6 @@ return [
     'create' => 'Create',
     'show' => 'Show',
     'delete' => 'Delete',
-    'actions' => 'Actions',
     'name' => 'Name',
     'password_confirmation' => 'Confirm Password',
     'city' => 'City',
@@ -79,14 +79,11 @@ return [
     'send' => 'Send',
     'notification' => 'Notification',
     'notifications' => 'Notifications',
-    'message' => 'Message',
     'messages' => 'Messages',
     'new' => 'New',
     'old' => 'Old',
     'read' => 'Read',
     'unread' => 'Unread',
-    // new
-    // Common Translations
     'actions' => 'Actions',
     'no_data_found' => 'No data found',
     'are_you_sure_to_delete_this_record' => 'Are you sure to delete this record?',
@@ -121,6 +118,7 @@ return [
     // Subscriber Module
     'subscribers' => 'Subscribers',
     'subscriber_has_been_deleted_successfully' => 'Subscriber Has Been Deleted Successfully',
+    'you_have_subscribed_successfully' => 'You have subscribed successfully',
     // Testimonials Module
     'testimonials' => 'Testimonials',
     'position' => 'Position',

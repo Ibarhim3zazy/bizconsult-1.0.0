@@ -64,7 +64,7 @@
             </x-sidebar-tab-dropdwon-head>
             <x-sidebar-tab-dropdwon-head icon="fe-feather" value="{{ __('keywords.features') }}" dropdown="true">
                 <x-slot name="dropDownLink">
-                    <x-sidebar-tab-dropdwon-link href="{{ route('front.feature') }}" target="_blank" value="{{
+                    <x-sidebar-tab-dropdwon-link href="{{ route('front.index') }}#features" target="_blank" value="{{
                         __('keywords.view') }}" badgeHiddenValue='false' />
                     <x-sidebar-tab-dropdwon-link href="{{ route('admin.features.index') }}" target="_parent" value="{{
                         __('keywords.all') }}" />
@@ -74,7 +74,7 @@
             </x-sidebar-tab-dropdwon-head>
             <x-sidebar-tab-dropdwon-head icon="fe-message-circle" value="{{ __('keywords.messages') }}" dropdown="true">
                 <x-slot name="dropDownLink">
-                    <x-sidebar-tab-dropdwon-link href="{{ route('front.contact') }}" target="_blank" value="{{
+                    <x-sidebar-tab-dropdwon-link href="{{ route('front.contact.create') }}" target="_blank" value="{{
                         __('keywords.view') }}" badgeHiddenValue='false' />
                     <x-sidebar-tab-dropdwon-link href="{{ route('admin.messages.index') }}" target="_parent" value="{{
                         __('keywords.all') }}" />

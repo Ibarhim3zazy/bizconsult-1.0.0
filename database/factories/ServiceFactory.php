@@ -19,7 +19,7 @@ class ServiceFactory extends Factory
         return [
             'title' => $this->faker->sentence(3),
             'description' => $this->faker->paragraph(3),
-            'icon' => 'fe fe-user',
+            'icon' => 'fa-user-tie',
         ];
     }
 }

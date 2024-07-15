@@ -2,6 +2,7 @@
 
 use App\Models\Testimonial;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
@@ -23,12 +24,18 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 */
 
 // front routes
-Route::name('front.')->group(function () {
-    Route::view('/', 'front.index')->name('index');
-    Route::view('/about', 'front.about')->name('about');
-    Route::view('/service', 'front.service')->name('service');
-    Route::view('/feature', 'front.feature')->name('feature');
-    Route::view('/contact', 'front.contact')->name('contact');
+Route::name('front.')->controller(FrontController::class)->group(function () {
+    // ================================== Newsletter ==================================
+    Route::resource('subscriber', SubscriberController::class)->only(['store']);
+   //  Route::post('/subscriber/store', 'subscriberStore')->name('subscriber.store');
+    // ================================== Home Page ==================================
+    Route::get('/', 'index')->name('index');
+    // ================================== About Page ==================================
+    Route::get('/about', 'about')->name('about');
+    // ================================== Service Page ==================================
+    Route::get('/service', 'service')->name('service');
+    // ================================== Contact Page ==================================
+    Route::resource('contact', MessageController::class)->only(['create', 'store']); 
 });
 
 

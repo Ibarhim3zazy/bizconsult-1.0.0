@@ -21,7 +21,7 @@ class MessageController extends Controller
      */
     public function create()
     {
-        // return view('admin.messages.create');
+        return view('front.contact');
     }
 
     /**
@@ -29,9 +29,9 @@ class MessageController extends Controller
      */
     public function store(StoreMessageRequest $request)
     {
-        // $data = $request->validated();
-        // Message::create($data);
-        // return back()->with('success', __('keywords.your_message_has_been_sent_successfully'));
+        $data = $request->validated();
+        Message::create($data);
+        return back()->with('success', __('keywords.your_message_has_been_sent_successfully'));
     }
 
     /**
